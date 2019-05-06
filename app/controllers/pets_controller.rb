@@ -13,6 +13,9 @@ class PetsController < ApplicationController
   post '/pets' do 
     @pet = Pet.create(params[:pet])
     binding.pry
+    if params[:pet][:owner_name] != ""
+      @owner=Owner.new()
+    end
     @pet.save
     redirect to "pets/#{@pet.id}"
   end
