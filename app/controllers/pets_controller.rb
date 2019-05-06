@@ -14,7 +14,7 @@ class PetsController < ApplicationController
     @pet = Pet.create(params[:pet])
     binding.pry
     if params[:pet][:owner_name] != ""
-      @pet.owner = O=Owner.new()
+      @pet.owner=Owner.new(name: params[:pet][:owner_name])
     end
     @pet.save
     redirect to "pets/#{@pet.id}"
