@@ -28,10 +28,10 @@ class OwnersController < ApplicationController
     erb :'/owners/show'
   end
 
-  patch '/owners/:id' do 
-   ####### bug fix
+  patch '/owners/:id' do
+    ####### bug fix
     if !params[:owner].keys.include?("pet_ids")
-      params[:owner]["pet_ids"] = []
+    params[:owner]["pet_ids"] = []
     end
     #######
  
@@ -42,4 +42,5 @@ class OwnersController < ApplicationController
     end
     redirect "owners/#{@owner.id}"
   end
+  
 end
