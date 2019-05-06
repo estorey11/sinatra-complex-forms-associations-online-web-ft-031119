@@ -6,15 +6,15 @@
  
   <br>
  
-  <input type="text" name="pet[name]" id="pet_name" value="<%=@owner.name%>">
+  <input type="text" name="pet[name]" id="pet_name" value="<%=@pet.name%>">
  
   <br>
  
-  <label>Choose an existing pet:</label>
+  <label>Choose an existing owner:</label>
  
   <br>
  
-  <%@pets.each do |pet|%>
+  <%@owners.each do |pet|%>
     <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id%>" value="<%=pet.id%>" <%='checked' if @owner.pets.include?(pet) %>><%=pet.name%></input>
   <%end%>
  
