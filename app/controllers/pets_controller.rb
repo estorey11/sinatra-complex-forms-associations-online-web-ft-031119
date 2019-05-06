@@ -37,6 +37,7 @@ class PetsController < ApplicationController
     if params[:owner][:name] != ""
       @pet.owner=Owner.new(name: params[:owner][:name])
     end
+    @pet.save
     redirect to "pets/#{@pet.id}"
   end
 end
