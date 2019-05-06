@@ -12,11 +12,10 @@ class PetsController < ApplicationController
 
   post '/pets' do 
     @pet = Pet.create(params[:pet])
-    if params[:pet][:owner_name] != ""
+    if params[:owner_name] != ""
       @pet.owner=Owner.new(name: params[:owner_name])
     end
     @pet.save
-    binding.pry
     redirect to "pets/#{@pet.id}"
   end
 
